@@ -47,4 +47,4 @@ $rosrun mypkg twice.py
 
 
 # 動画
-https://www.youtube.com/watch?v=WnCHYqUvV_c&feature=youtu.be
+https://www.youtube.com/watch?v=vIkjThY-Ock&feature=youtu.be
