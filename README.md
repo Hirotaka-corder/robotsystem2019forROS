@@ -13,41 +13,38 @@
 # セットアップ
 端末を３つ起動し、以下のようにセットアップを行います
 
-端末１
+・端末１
 $roscore
 
-$sudo insmod myledshingou.ko
+・端末２
+$rosrun mypkg once.py
 
-$sudo mknod /dev/myled0 c [メジャー番号] [マイナー番号]
-
-$sudo chmod 666 /dev/myled0
+・端末３
+$rosrun mypkg twice.py
 
 # 使い方
-$ echo [秒数] > /dev/myled0
-
-＊秒数は0～9の自然数
+・上記セットアップ後に端末２、端末３にそれぞれ数字を入力することで、もう一方の端末に入力された数字が送信されます。
 
 
 例１）
-$ echo 1 > /dev/myled0 
+　端末２に
+  114 
+　と入力
 
-→ GPIO23に接続されたLEDが１秒間点灯後、消灯
-　その後、GPIO24に接続されたLEDが１秒間点灯後、消灯
+→ 端末３に
+　[INFO] [1484659840.762425]: 114
+　と出力される
  
  
  例２）
- $ echo 13 > /dev/myled0 
+ 　端末３に
+   514
+   と入力
 
-→ GPIO23に接続されたLEDが１秒間点灯後、消灯
-　その後、GPIO24に接続されたLEDが１秒間点灯後、消灯
- 
-→ 続いて、GPIO23に接続されたLEDが３秒間点灯後、消灯
-　その後、GPIO24に接続されたLEDが３秒間点灯後、消灯
+→ 端末２に
+ 　[INFO] [1484659840.762425]: 514
+  と出力される
+
 
 # 動画
 https://www.youtube.com/watch?v=WnCHYqUvV_c&feature=youtu.be
-
-# 参考文献
-https://karaage.hatenadiary.jp/entry/2018/01/19/073000
-
-READMEの良さそうな書き方・テンプレート（最終閲覧日：2019/12/27）
